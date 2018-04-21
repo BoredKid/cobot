@@ -14,4 +14,14 @@ client.on('message', (message) => {
   }
 });
 
+client.on('message' , (message) => {
+  if (!message.content.startsWith('!sardine')) return;
+  if (message.content === "!sardine") {
+    message.guild.roles.get('437275140863164417').members.map((member) => {
+      message.channel.send(`The current sardine is **${member.user.username}**`
+        + '. You can tag it using \`@sardine\` in your message.');
+    });
+  }
+});
+
 client.login(env.token);
